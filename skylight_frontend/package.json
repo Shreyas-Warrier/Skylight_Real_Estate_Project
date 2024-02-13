@@ -1,0 +1,45 @@
+{
+  "name": "skylight_frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@react-oauth/google": "^0.12.1",
+    "@sanity/client": "^6.12.4",
+    "@sanity/image-url": "^1.0.2",
+    "axios": "^1.6.7",
+    "framer-motion": "^11.0.5",
+    "millify": "^6.1.0",
+    "nprogress": "^0.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-horizontal-scrolling-menu": "^5.0.2",
+    "react-icons": "^5.0.1",
+    "react-loader-spinner": "^6.1.6",
+    "react-masonry-css": "^1.0.16",
+    "react-router-dom": "^6.22.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.0"
+  }
+}
