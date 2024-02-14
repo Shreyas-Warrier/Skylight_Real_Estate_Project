@@ -3,7 +3,6 @@
 import React from 'react'
 import { useEffect,useState } from 'react';
 import {Flex, Box, Text, Button, Image, Link} from '@chakra-ui/react';
-import { baseUrl,fetchapi} from '../components/fetchapi';
 import axios from 'axios'
 
 const Banner = ({purpose, title1, title2, desc1, desc2, buttonText, linkName, imageUrl}) => (
@@ -32,11 +31,11 @@ const Home = () =>{
     const fetchData = async () => {
       try{
         const saleResponse = await axios.get('http://localhost:8080/api/properties?type=for-sale');
-        console.log('Sale Response:', saleResponse.data);
+        //console.log('Sale Response:', saleResponse.data.hits);
         setPropsForSale(saleResponse.data.hits);
 
         const rentResponse = await axios.get('http://localhost:8080/api/properties?type=for-rent');
-        console.log('Rent Response:', rentResponse.data);
+        //console.log('Rent Response:', rentResponse.data.hits);
         setPropsForRent(rentResponse.data.hits);
       }
       catch (error) {
@@ -65,19 +64,9 @@ const Home = () =>{
       />
 
       <Flex flexWrap="wrap">
-        {/* Render properties for sale */}
-        {propsForSale.map(property => (
-          <Box key={property.id}>
-            {/* Render property details */}
-          </Box>
-        ))}
-
-        {/* Render properties for rent */}
-        {propsForRent.map(property => (
-          <Box key={property.id}>
-            {/* Render property details */}
-          </Box>
-        ))}
+        {propsForSale.map((property) => 
+          <Property property={property} key={property.id} />
+        )}
       </Flex>
 
       <Banner 
@@ -90,6 +79,10 @@ const Home = () =>{
         linkName="/search?purpose=for-sale"
         imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008'
       />
+
+    {propsForSale.map((property) => 
+              <Property property={property} key={property.id} />
+            )}
     </Box>
   )
 }
