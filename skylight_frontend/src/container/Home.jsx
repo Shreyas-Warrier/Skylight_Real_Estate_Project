@@ -2,8 +2,9 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { useEffect,useState } from 'react';
-import {Flex, Box, Text, Button, Image, Link} from '@chakra-ui/react';
+import {Flex, Box, Text, Button, Image} from '@chakra-ui/react';
 import axios from 'axios'
+import Property from '../components/Property';
 
 const Banner = ({purpose, title1, title2, desc1, desc2, buttonText, linkName, imageUrl}) => (
   <Flex flexWrap='wrap' justifyContent='center' alignItems='center' m='10'>
@@ -64,7 +65,7 @@ const Home = () =>{
       />
 
       <Flex flexWrap="wrap">
-        {propsForSale.map((property) => 
+        {propsForRent.map((property) => 
           <Property property={property} key={property.id} />
         )}
       </Flex>
