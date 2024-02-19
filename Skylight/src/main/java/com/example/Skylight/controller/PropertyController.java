@@ -1,4 +1,4 @@
-package com.example.Skylight;
+package com.example.Skylight.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
