@@ -2,7 +2,7 @@
 import React from 'react'
 import {GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from '@react-oauth/google';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import shareVideo from '../assets/share.mp4'
 import logo from '../assets/rm2.png'
@@ -14,7 +14,7 @@ const Login = () => {
   
   const handleLogin = (credentialResponse) => {
     console.log(credentialResponse);
-    navigate('/');
+    navigate('/home');
   }
 
   const handleFail = () => {
@@ -60,8 +60,12 @@ const Login = () => {
                 />
                 
               </GoogleOAuthProvider>
-               
+
               </div>
+                  <br />
+              <Link to="/register" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Register</Link>
+              <br />
+              <Link to="/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Login</Link> 
           </div>
       </div>
     </div>

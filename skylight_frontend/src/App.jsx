@@ -8,6 +8,8 @@ import { ChakraProvider } from '@chakra-ui/react';
 import Layout from './components/Layout';
 import Home from './container/Home';
 import Login from './components/Login';
+import Nlogin from './components/Nlogin';
+import Register from './components/Register';
 
 const App = ({ Component, pageProps }) => {
 
@@ -33,7 +35,7 @@ const App = ({ Component, pageProps }) => {
     };
   }, []);
 
-  const isPath = location.pathname === '/login';
+  const isPath = location.pathname === '/' | location.pathname === '/register' | location.pathname === '/login';
 
   return (
     <>
@@ -41,15 +43,16 @@ const App = ({ Component, pageProps }) => {
         {!isPath && (
           <Layout>
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="*" element={<Home />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </Layout>
         )}
         </ChakraProvider>
         {isPath && (
           <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Nlogin />} />
         </Routes>
         )}
     </>

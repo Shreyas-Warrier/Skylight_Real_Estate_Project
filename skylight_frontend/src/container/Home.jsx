@@ -81,9 +81,12 @@ const Home = () =>{
         imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008'
       />
 
+    <Flex flexWrap="wrap">
     {propsForSale.map((property) => 
               <Property property={property} key={property.id} />
             )}
+    </Flex>
+
     </Box>
   )
 }
