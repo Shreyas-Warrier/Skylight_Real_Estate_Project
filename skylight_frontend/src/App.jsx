@@ -10,6 +10,8 @@ import Home from './container/Home';
 import Login from './components/Login';
 import Nlogin from './components/Nlogin';
 import Register from './components/Register';
+import Search from './components/Search';
+import PropertyDetails from './property/[id]';
 
 const App = ({ Component, pageProps }) => {
 
@@ -44,6 +46,8 @@ const App = ({ Component, pageProps }) => {
           <Layout>
           <Routes>
             <Route path="/home" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/property/:id" element={<PropertyDetails />} />
           </Routes>
         </Layout>
         )}
