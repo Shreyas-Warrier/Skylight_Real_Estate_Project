@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import { Box } from '@chakra-ui/react';
+import { Helmet } from 'react-helmet';
 
 import Footer from './Footer';
 import Navbar from './Navbar';
 
 const Layout = ({ children }) => (
   <>
-    <CustomHead>
+    <Helmet>
       <title>Real Estate</title>
-    </CustomHead>
+    </Helmet>
     <Box maxWidth='1280px' m='auto'>
       <header>
         <Navbar />
@@ -19,12 +20,6 @@ const Layout = ({ children }) => (
       </footer>
     </Box>
   </>
-);
-
-const CustomHead = ({ children }) => (
-  <head>
-    {children}
-  </head>
 );
 
 export default Layout;

@@ -14,7 +14,7 @@ const Navbar = () => (
         <MenuButton as={IconButton} icon={<FcMenu />} variant='outline' color='red.400' />
         <MenuList>
           <MenuItem>
-            <a href='/'>
+            <a href='/home'>
               <FcHome /> Home
             </a>
           </MenuItem>
