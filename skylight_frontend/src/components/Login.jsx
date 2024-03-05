@@ -14,6 +14,7 @@ const Login = () => {
   
   const handleLogin = (credentialResponse) => {
     console.log(credentialResponse);
+    localStorage.setItem('userID', credentialResponse.id);
     navigate('/home');
   }
 
