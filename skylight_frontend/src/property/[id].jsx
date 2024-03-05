@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
-import { Box, Flex, Spinner, Text, Icon } from '@chakra-ui/react';
+import { Box, Flex, Spinner, Text, Icon, Button} from '@chakra-ui/react';
 import { Avatar} from '@chakra-ui/avatar';
 import { useParams } from 'react-router-dom';
 import ImageScrollBar from '../components/ImageScrollBar';
@@ -15,6 +15,19 @@ const PropertyDetails = () => {
     const [propertyDetails, setPropertyDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+    const [userId, setUserId] = useState(null);
+    const [successMessage, setSuccessMessage] = useState('');
+
+    useEffect(() => {
+        const fetchUserId = async () => {
+            const userIdFromStorage = localStorage.getItem('userID');
+            if (userIdFromStorage) {
+                setUserId(userIdFromStorage);
+            }
+        };
+
+        fetchUserId();
+    }, []);
 
     useEffect(() => {
         const fetchPropertyDetails = async () => {
@@ -40,6 +53,42 @@ const PropertyDetails = () => {
         setSelectedImageIndex((prevIndex) => (prevIndex - 1 + propertyDetails.photos.length) % propertyDetails.photos.length);
     };
 
+    const handleBuyProperty = async () => {
+        try {
+            console.log('Preparing to buy property with userId:', userId, 'and propertyId:', id);
+            
+            const url = `http://localhost:8080/api/users/${userId}/properties/buy?propertyId=${id}`;
+            console.log('URL:', url);
+    
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to buy property: ' + response.statusText);
+            }
+            
+            const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+            
+            const responseData = await response.json();
+            console.log('Response:', responseData);
+            console.log('Property bought successfully');
+            setSuccessMessage('Property requested successfully');
+        } else {
+            const responseText = await response.text();
+            console.log('Response:', responseText);
+            setSuccessMessage('Property requested successfully');
+        }
+        } catch (error) {
+            console.error('Error buying property:', error);
+        }
+    };
+    
+
     return (
         <Box maxWidth="1000px" margin="auto" p="4" position="relative">
             {loading ? (
@@ -48,6 +97,11 @@ const PropertyDetails = () => {
                 </Flex>
             ) : (
                 <Box>
+                    {successMessage && (
+                        <Box mb={4}>
+                            <Text color="green.500" fontSize="xl" align="center" fontWeight="bold">{successMessage}</Text>
+                        </Box>
+                    )}
                     <Flex alignItems="center" justifyContent="center" position="relative">
                         <Box position="absolute" left="0" top="50%" transform="translateY(-50%)" onClick={handlePrevImage}>
                             <Icon as={FaArrowAltCircleLeft} fontSize="2xl" cursor="pointer" />
@@ -105,6 +159,12 @@ const PropertyDetails = () => {
                                 ))
                             ))}
                         </Flex>
+                    </Box>
+
+                    <Box>
+                    <Flex justifyContent="center" marginTop="4">
+                        <Button colorScheme="blue" onClick={handleBuyProperty}>Buy Property</Button>
+                    </Flex>
                     </Box>
                     </Box>
                     

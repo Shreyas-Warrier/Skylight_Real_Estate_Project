@@ -29,6 +29,9 @@ const Nlogin = () =>
                 body: JSON.stringify(formData)
             });
             if (response.ok) {
+                const userData = await response.json();
+                localStorage.setItem('userID', userData.id);
+                console.log(userData.id);
                 navigate('/home');
             } else {
                 console.error('Login Failed');
