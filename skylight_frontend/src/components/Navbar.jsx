@@ -2,6 +2,7 @@ import { Menu, MenuButton, MenuList, MenuItem, IconButton, Flex, Box, Spacer } f
 import { FcMenu, FcHome, FcAbout } from 'react-icons/fc';
 import { BsSearch } from 'react-icons/bs';
 import { FiKey } from 'react-icons/fi';
+import Logout from './Logout';
 
 const Navbar = () => (
   <Flex p='2' borderBottom='1px' borderColor='gray.100'>
@@ -32,6 +33,9 @@ const Navbar = () => (
             <a href='/search?purpose=for-rent'>
               <FiKey /> Rent Property
             </a>
+          </MenuItem>
+          <MenuItem>
+            <Logout />
           </MenuItem>
         </MenuList>
       </Menu>

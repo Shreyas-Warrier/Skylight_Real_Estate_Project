@@ -12,6 +12,7 @@ import Nlogin from './components/Nlogin';
 import Register from './components/Register';
 import Search from './components/Search';
 import PropertyDetails from './property/[id]';
+import AuthLayout from './components/AuthLayout';
 
 const App = ({ Component, pageProps }) => {
 
@@ -43,6 +44,7 @@ const App = ({ Component, pageProps }) => {
     <>
       <ChakraProvider>
         {!isPath && (
+          <AuthLayout>
           <Layout>
           <Routes>
             <Route path="/home" element={<Home />} />
@@ -50,6 +52,7 @@ const App = ({ Component, pageProps }) => {
             <Route path="/property/:id" element={<PropertyDetails />} />
           </Routes>
         </Layout>
+        </AuthLayout>
         )}
         </ChakraProvider>
         {isPath && (
