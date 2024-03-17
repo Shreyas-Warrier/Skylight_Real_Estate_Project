@@ -1,7 +1,6 @@
-package com.example.exmp.model;
+package com.example.Skylight.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Property {
@@ -81,3 +80,4 @@ public class Property {
         this.externalId = externalId;
     }
 }
+

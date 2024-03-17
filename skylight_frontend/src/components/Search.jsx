@@ -85,7 +85,7 @@ const Search = () => {
             <Text fontSize="2xl" p="4" fontWeight="bold">
                 Properties {purpose}
             </Text>
-            {loading ? ( // Show spinner only when loading is true
+            {loading ? (
                 <Flex justifyContent="center" alignItems="center" height="50vh">
                     <Spinner size="xl" color="blue.500" />
                 </Flex>

@@ -1,7 +1,7 @@
-package com.example.exmp.service;
+package com.example.Skylight.service;
 
-import com.example.exmp.model.Property;
-import com.example.exmp.repository.PropertyRepository;
+import com.example.Skylight.model.Property;
+import com.example.Skylight.repository.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

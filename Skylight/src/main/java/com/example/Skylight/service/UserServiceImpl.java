@@ -57,9 +57,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(Long id, User user) {
-        user.setId(id); // Ensure the ID is set for the given user
-        return userRepository.save(user);
+        User existingUser = userRepository.findById(id).orElse(null);
+        if (existingUser == null) {
+            return null;
+        }
+        existingUser.setPassword(user.getPassword());
+        return userRepository.save(existingUser);
     }
+
 
     @Override
     public void deleteUser(Long id) {
