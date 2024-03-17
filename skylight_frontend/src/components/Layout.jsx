@@ -8,7 +8,7 @@ import Navbar from './Navbar';
 const Layout = ({ children }) => (
   <>
     <Helmet>
-      <title>Real Estate</title>
+      <title>Skylight</title>
     </Helmet>
     <Box maxWidth='1280px' m='auto'>
       <header>

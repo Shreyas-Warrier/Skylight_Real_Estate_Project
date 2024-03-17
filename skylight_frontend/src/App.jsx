@@ -13,6 +13,7 @@ import Register from './components/Register';
 import Search from './components/Search';
 import PropertyDetails from './property/[id]';
 import AuthLayout from './components/AuthLayout';
+import Dashboard from './components/Dashboard';
 
 const App = ({ Component, pageProps }) => {
 
@@ -50,6 +51,7 @@ const App = ({ Component, pageProps }) => {
             <Route path="/home" element={<Home />} />
             <Route path="/search" element={<Search />} />
             <Route path="/property/:id" element={<PropertyDetails />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </Layout>
         </AuthLayout>

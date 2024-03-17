@@ -6,11 +6,12 @@ import {BsGridFill} from 'react-icons/bs'
 import { GoVerified } from 'react-icons/go';
 import { FaBed, FaBath } from 'react-icons/fa';
 import millify from 'millify';
+import {Link} from 'react-router-dom';
 
 import DefaultImage from '../assets/house.jpg';
 
 const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID } }) => (
-  <a href={`/property/${externalID}`} target="_blank" rel="noopener noreferrer">
+  <Link to={`/property/${externalID}`} target="_blank" rel="noopener noreferrer">
     <Flex flexWrap='wrap' w='420px' p='5' paddingTop='0px' justifyContent='flex-start' cursor='pointer'>
       <Box>
         <img src={coverPhoto ? coverPhoto.url : DefaultImage} alt="house" width={400} height={260}/>
@@ -34,7 +35,7 @@ const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, 
         </Text>
       </Box>
     </Flex>
-  </a>
+  </Link>
 );
 
 export default Property;

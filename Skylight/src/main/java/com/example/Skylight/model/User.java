@@ -1,12 +1,12 @@
 package com.example.Skylight.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+
+import java.util.List;
 
 @Entity
 public class User {
@@ -28,6 +28,18 @@ public class User {
     @NotBlank(message = "Password is required")
     @Size(min=6, message = "Password must be at least 6 characters long")
     private String password;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "interestedUser", cascade = CascadeType.ALL)
+    private List<Property> interestedProperties;
+
+    public List<Property> getInterestedProperties() {
+        return interestedProperties;
+    }
+
+    public void setInterestedProperties(List<Property> ownedProperties) {
+        this.interestedProperties = ownedProperties;
+    }
 
     public String getName() {
         return name;
@@ -69,5 +81,6 @@ public class User {
         this.password = password;
     }
 }
+
 
 

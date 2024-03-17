@@ -1,2 +1,8 @@
-package com.example.Skylight.repository;public interface PropertyRepository {
+package com.example.Skylight.repository;
+import com.example.Skylight.model.Property;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PropertyRepository extends JpaRepository<Property, Long> {
 }

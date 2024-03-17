@@ -1,5 +1,6 @@
 package com.example.Skylight.controller;
 
+import com.example.Skylight.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -20,6 +21,9 @@ import java.util.Properties;
 public class PropertyController {
 
     private final RestTemplate restTemplate;
+
+    @Autowired
+    private UserService userService;
     private final String rapidApiKey;
 
     @Autowired
@@ -76,4 +80,5 @@ public class PropertyController {
         HttpEntity<String> entity = new HttpEntity<>(headers);
         return restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
     }
+
 }

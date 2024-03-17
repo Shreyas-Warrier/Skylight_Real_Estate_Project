@@ -1,13 +1,14 @@
 import { Menu, MenuButton, MenuList, MenuItem, IconButton, Flex, Box, Spacer } from '@chakra-ui/react';
 import { FcMenu, FcHome, FcAbout } from 'react-icons/fc';
 import { BsSearch } from 'react-icons/bs';
-import { FiKey } from 'react-icons/fi';
+import { FiKey, FiSettings } from 'react-icons/fi';
+import {Link} from 'react-router-dom';
 import Logout from './Logout';
 
 const Navbar = () => (
   <Flex p='2' borderBottom='1px' borderColor='gray.100'>
     <Box fontSize='3xl' color='blue.400' fontWeight='bold'>
-      <a href='/' style={{ paddingLeft: '2' }}>Skylight</a>
+      <Link to='/' style={{ paddingLeft: '2' }}>Skylight</Link>
     </Box>
     <Spacer />
     <Box>
@@ -15,24 +16,29 @@ const Navbar = () => (
         <MenuButton as={IconButton} icon={<FcMenu />} variant='outline' color='red.400' />
         <MenuList>
           <MenuItem>
-            <a href='/home'>
+            <Link to='/home'>
               <FcHome /> Home
-            </a>
+            </Link>
           </MenuItem>
           <MenuItem>
-            <a href='/search'>
+            <Link to='/search'>
               <BsSearch /> Search
-            </a>
+            </Link>
           </MenuItem>
           <MenuItem>
-            <a href='/search?purpose=for-sale'>
+            <Link to='/search?purpose=for-sale'>
               <FcAbout /> Buy Property
-            </a>
+            </Link>
           </MenuItem>
           <MenuItem>
-            <a href='/search?purpose=for-rent'>
+            <Link to='/search?purpose=for-rent'>
               <FiKey /> Rent Property
-            </a>
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to='/dashboard'> 
+              <FiSettings /> Dashboard 
+            </Link>
           </MenuItem>
           <MenuItem>
             <Logout />

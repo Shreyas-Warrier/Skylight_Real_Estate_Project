@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Flex, Box, Text, Button, Image } from '@chakra-ui/react';
 import axios from 'axios';
 import Property from '../components/Property';
+import {Link} from 'react-router-dom';
 
 const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName, imageUrl }) => (
   <Flex flexWrap='wrap' justifyContent='center' alignItems='center' m='10'>
@@ -12,9 +13,9 @@ const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName, i
       <Text fontSize='3xl' fontWeight='bold'>{title1}<br />{title2}</Text>
       <Text fontSize='lg' paddingTop='3' paddingBottom='3' color='gray.700'>{desc1}<br />{desc2}</Text>
       <Button fontSize='xl' bg="blue.300">
-        <a href={linkName}>
+        <Link to={linkName}>
           {buttonText}
-        </a>
+        </Link>
       </Button>
     </Box>
   </Flex>
